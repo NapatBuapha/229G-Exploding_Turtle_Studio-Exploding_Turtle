@@ -36,6 +36,7 @@ public class Player_ExplosiveSystem : MonoBehaviour
             Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
             if(rb != null)
             {
+                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
                 rb.AddExplosionForce(explosiveForce, transform.position, radius);
             }
         }
