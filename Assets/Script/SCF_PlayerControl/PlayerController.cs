@@ -43,6 +43,10 @@ public class PlayerController : MonoBehaviour
     private Player_HealthSystem player_HealthSystem;
     private FallDamageCalculator fallDamageCalculator;
 
+    [Header("[Dying] ref")]
+    public bool isDead;
+    [SerializeField] private GameObject gameOverUi;
+
     
  
     void Awake()
@@ -53,12 +57,26 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
+        isDead = false;
         isTouchGround = true;
     }
 
    
     void Update()
-    {
+    {   //Dead check start
+        if(isDead)
+        {
+            return;
+        }
+
+        if(player_HealthSystem.currentHealth <= 0)
+        {
+            Dying();
+            Debug.Log("Is dead");
+            isDead = true;
+        }
+        //Dead check end
+
         
         velocitycheck = rb.velocity.y;
         //Jump System Start
@@ -94,6 +112,7 @@ public class PlayerController : MonoBehaviour
         float HorizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         direction = orientation.forward * verticalInput + orientation.right * HorizontalInput;
+        //move System End
 
 
         //OnFloor and not condition
@@ -102,7 +121,7 @@ public class PlayerController : MonoBehaviour
         else
         rb.drag = airDrag;
     
-        //move System End
+        
 
     }
 
@@ -134,6 +153,13 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector3(rb.velocity.x , -maxFallVelocity , rb.velocity.z);
         }
+    }
+
+    private void Dying()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        gameOverUi.SetActive(true);
     }
 
 

@@ -1,11 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class Player_HealthSystem : MonoBehaviour
 {
-    public int maxHealth = 20; 
-    public int currentHealth;
+
+
+    public int maxHealth;
+
+    public int currentHealth = 20;
+
     HealthUI healthUI;
 
     private void Awake()
@@ -48,5 +55,6 @@ public class Player_HealthSystem : MonoBehaviour
             Debug.Log($"💖 HP เพิ่มขึ้น! ตอนนี้เหลือ {currentHealth} HP");
         }
         */
+
     }
 }
