@@ -7,7 +7,8 @@ using UnityEngine;
 
 public class Player_HealthSystem : MonoBehaviour
 {
-
+    [SerializeField] private AudioClip hitFX;
+    private AudioSource audioSource;
 
     public int maxHealth;
 
@@ -18,12 +19,18 @@ public class Player_HealthSystem : MonoBehaviour
     private void Awake()
     {
         healthUI = GameObject.Find("Health_UI_Canvas").GetComponent<HealthUI>();
+        audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
         healthUI.UpdateHearts(currentHealth);
     }
 
         public void TakeDamage(int damage)
     {
+        if(damage > 0)
+        {
+            audioSource.clip = hitFX;
+            audioSource.Play();
+        }        
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         healthUI.UpdateHearts(currentHealth);
