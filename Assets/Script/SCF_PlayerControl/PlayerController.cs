@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Callbacks;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -160,6 +161,20 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         gameOverUi.SetActive(true);
+    }
+
+    private void OnTriggerEnter(Collider col)
+    {
+        if(col.CompareTag("Items"))
+        {
+            ICollectable collectable = col.GetComponent<ICollectable>();
+            if(collectable != null)
+            {
+                collectable.collect();
+            }
+
+
+        }
     }
 
 

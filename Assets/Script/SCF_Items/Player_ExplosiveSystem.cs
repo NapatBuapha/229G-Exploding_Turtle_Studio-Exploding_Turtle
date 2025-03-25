@@ -9,6 +9,9 @@ public class Player_ExplosiveSystem : MonoBehaviour
 
     [SerializeField] private float radius = 5f;
     [SerializeField] private float explosiveForce = 10f;
+
+    [Header ("Explosive Items")]
+    public int exploAmout;
  
     void Start()
     {
@@ -18,8 +21,9 @@ public class Player_ExplosiveSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E) && exploAmout > 0)
         {
+            exploAmout--;
             Explode();
         }    
     }
