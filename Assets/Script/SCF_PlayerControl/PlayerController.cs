@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         
         if(Physics.Raycast(groundCheckingRay , out hit, checkingDistance))
         {
-            if(!isTouchGround)
+            if(!isTouchGround && hit.collider.CompareTag("Floor"))
             {
                 Debug.Log("TakeFall Damage");
                 player_HealthSystem.TakeDamage(fallDamageCalculator.fallDamage);

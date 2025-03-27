@@ -3,7 +3,22 @@ guid: aea6c74014be71c4ebcc795c400b3bcd
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dynamite
+    second: {fileID: 2100000, guid: d34392e78532f9d4a8b83edea06a9fa9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rope.001
+    second: {fileID: 2100000, guid: 10f0a70cf6734704fab0188edbf5c0bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tape
+    second: {fileID: 2100000, guid: a23593505d61d134aa06845c651fe4d1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
