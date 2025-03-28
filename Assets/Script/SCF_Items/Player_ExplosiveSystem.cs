@@ -9,9 +9,13 @@ public class Player_ExplosiveSystem : MonoBehaviour
 {
 
     [SerializeField] private float radius = 5f;
-    [SerializeField] private float explosiveForce = 10f;
+    [SerializeField] private float explosiveForce;
     [SerializeField] private GameObject explosiveEffect;
     [SerializeField] private AudioClip explosiveFX;
+    [SerializeField] private GameObject player;
+
+    private float playerMass;
+    [SerializeField] private float accerelation;
     private AudioSource audioSource;
 
     [Header ("Explosive Items")]
@@ -19,6 +23,9 @@ public class Player_ExplosiveSystem : MonoBehaviour
  
     void Start()
     {
+        playerMass = player.GetComponent<Rigidbody>().mass;
+        explosiveForce = playerMass * accerelation;
+
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -47,7 +54,7 @@ public class Player_ExplosiveSystem : MonoBehaviour
             if(rb != null)
             {
                 rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-                rb.AddExplosionForce(explosiveForce, transform.position, radius);
+                rb.AddForce(Vector3.up * explosiveForce, ForceMode.Impulse);
             }
         }
     }

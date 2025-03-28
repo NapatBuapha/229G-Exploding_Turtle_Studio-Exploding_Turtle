@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
     public bool isDead;
     [SerializeField] private GameObject gameOverUi;
 
+
+
     
  
     void Awake()
@@ -58,9 +60,14 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
+        
         isDead = false;
         isTouchGround = true;
     }
+
+    
+
+    
 
    
     void Update()
@@ -92,11 +99,6 @@ public class PlayerController : MonoBehaviour
         
         if(Physics.Raycast(groundCheckingRay , out hit, checkingDistance))
         {
-            if(!isTouchGround && hit.collider.CompareTag("Floor"))
-            {
-                Debug.Log("TakeFall Damage");
-                player_HealthSystem.TakeDamage(fallDamageCalculator.fallDamage);
-            }
             
             isTouchGround = true;
 
@@ -174,6 +176,15 @@ public class PlayerController : MonoBehaviour
             }
 
 
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+            if(!isTouchGround && collision.collider.CompareTag("Floor"))
+        {
+            Debug.Log("TakeFall Damage");
+            player_HealthSystem.TakeDamage(fallDamageCalculator.fallDamage);
         }
     }
 
