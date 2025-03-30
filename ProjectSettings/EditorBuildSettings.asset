@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lv_Space.unity
     guid: 20444280fbf0964489acd974721c3377
+  - enabled: 1
+    path: Assets/Scenes/Lv_Astemosphere.unity
+    guid: c653aa5393db2c942b5ce86f228a150d
+  - enabled: 1
+    path: Assets/Scenes/Lv_City.unity
+    guid: 597694d0026e2e146aa47a3d99c2c20c
+  - enabled: 1
+    path: Assets/Scenes/Lv_Credit.unity
+    guid: a77f69283080ac94dbe55380ec6319e8
   m_configObjects: {}

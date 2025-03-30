@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306694988333146913}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -820,6 +820,8 @@ MonoBehaviour:
   explosiveForce: 1000
   explosiveEffect: {fileID: 841943000168044754, guid: 427a12a6b15fde441bfa035e6c60960e, type: 3}
   explosiveFX: {fileID: 8300000, guid: faf4b84a44c47494e8537d43e901dac3, type: 3}
+  player: {fileID: 877786552169142520}
+  accerelation: 25
   exploAmout: 0
 --- !u!82 &5173150525139060507
 AudioSource:
