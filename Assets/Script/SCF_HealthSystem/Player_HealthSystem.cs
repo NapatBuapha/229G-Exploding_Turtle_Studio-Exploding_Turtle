@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
-using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class Player_HealthSystem : MonoBehaviour
