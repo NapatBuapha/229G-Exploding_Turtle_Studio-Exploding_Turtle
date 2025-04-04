@@ -57,7 +57,7 @@ public class PauseMenu : MonoBehaviour
     public void GoToMainMenu()
     {
         Time.timeScale = 1f; // คืนค่าความเร็วเกมก่อนเปลี่ยนซีน
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Menu_Scene");
     }
 
     public void QuitGame()
